@@ -238,6 +238,7 @@ bool checkReconstructedObject(GlobalMethodsClass const& gmc, LCCluster& thisClus
 }
 
 void initLogLevels(){
+#ifndef STREAMLOG_NEW_TS_IMPL
   streamlog::out.addLevelName<marlin::DEBUG>();
   streamlog::out.addLevelName<marlin::DEBUG0>();
   streamlog::out.addLevelName<marlin::DEBUG1>();
@@ -283,6 +284,7 @@ void initLogLevels(){
   streamlog::out.addLevelName<marlin::ERROR8>();
   streamlog::out.addLevelName<marlin::ERROR9>();
   streamlog::out.addLevelName<marlin::SILENT>();
+#endif
 }
 
 #endif // TESTUTILITIES_HH

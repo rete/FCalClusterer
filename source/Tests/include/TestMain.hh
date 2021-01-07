@@ -5,10 +5,14 @@
 int runTest(int argn, char** argc);
 
 int main(int argn, char** argc) {
+#ifndef STREAMLOG_NEW_TS_IMPL
   streamlog::out.init(std::cout, "Testing");
   initLogLevels();
   streamlog::logscope scope(streamlog::out);
   scope.setLevel("DEBUG6");
+#else
+  streamlog::logstream::global_init( &std::cout, "Testing", "DEBUG6" ) ;
+#endif
 
   try {
     return runTest(argn, argc);
